@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Burnout.HarmonyPatches
 {
-    [HarmonyAfter("Chroma")]
+    [HarmonyAfter("com.noodle.BeatSaber.Chroma")]
     [HarmonyPatch(typeof(SaberBurnMarkArea), "Start")]
     internal class SaberBurnMarkArea_Start
     {
