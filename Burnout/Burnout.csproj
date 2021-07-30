@@ -142,13 +142,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HarmonyPatches\SaberBurnMarkArea_Start.cs" />
-    <Compile Include="HarmonyPatches\SaberBurnMarkSparkles_Start.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
+    <Compile Include="Helpers\PresetHelper.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\BurnFlowCoordinator.cs" />
-    <Compile Include="UI\BurnMainSettings.cs" />
+    <Compile Include="UI\BurnMainMenu.cs" />
+    <Compile Include="UI\BurnSideMenu.cs" />
     <Compile Include="UI\Settings.cs" />
     <Compile Include="UI\UISingleton.cs" />
     <EmbeddedResource Include="Views\MainMenu.bsml">
@@ -158,6 +159,8 @@
   <ItemGroup>
     <EmbeddedResource Include="manifest.json" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Views\SideMenu.bsml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

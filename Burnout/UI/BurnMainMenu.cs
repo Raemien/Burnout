@@ -1,10 +1,9 @@
 ﻿using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.ViewControllers;
-using BS_Utils.Utilities;
-using BeatSaberMarkupLanguage.Components.Settings;
 using UnityEngine;
 using Burnout.Helpers;
-using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Burnout
 {
@@ -13,9 +12,6 @@ namespace Burnout
         public override string ResourceName => "Burnout.Views.MainMenu.bsml";
 
         internal bool _EnableTweaks = Settings.instance.EnableTweaks;
-        internal float _BurnLifespan = Settings.instance.BurnLifespan;
-        internal float _BurnOpacity = Settings.instance.BurnOpacity;
-
         internal bool _OverrideColors = Settings.instance.OverrideColors;
         internal Color _LeftColor = ColorHelper.HexToColor(Settings.instance.Color_LSaber);
         internal Color _RightColor = ColorHelper.HexToColor(Settings.instance.Color_RSaber);
@@ -23,35 +19,14 @@ namespace Burnout
         [UIObject("color-container")]
         internal GameObject ColorContainer;
 
+        [UIValue("preset-options")]
+        private List<object> BurnPresets = new object[] { "Custom", "Default", "Classic", "Mono-Blue" }.ToList();
+
         [UIValue("master-enabled")]
         internal bool EnableTweaks
         {
             get => _EnableTweaks;
             set => _EnableTweaks = value;
-        }
-
-        [UIValue("burn-lifetime")]
-        internal float BurnLifespan
-        {
-            get => _BurnLifespan;
-            set
-            {
-                _BurnLifespan = value;
-                Settings.instance.BurnLifespan = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        [UIValue("burn-opacity")]
-        internal float BurnOpacity
-        {
-            get => _BurnOpacity;
-            set
-            {
-                _BurnOpacity = value;
-                Settings.instance.BurnOpacity = value;
-                NotifyPropertyChanged();
-            }
         }
 
         [UIValue("override-colors")]
@@ -101,11 +76,19 @@ namespace Burnout
             else Plugin.Disable();
         }
 
-        [UIAction("reset")]
-        internal void ResetSettings()
-        {   
-            Settings.instance.OverrideColors = true;
-            Settings.instance.BurnLifespan = 0.5f;
+        [UIAction("set-preset")]
+        public void SetPreset(string presetTag)
+        {
+            var presetEntries = PresetHelper.TrailPreset.ConfigDict;
+            if (presetEntries.ContainsKey(presetTag))
+            {
+                PresetHelper.ApplyPreset(presetEntries[presetTag]);
+            }
+            else return;
+            var config = Settings.instance;
+            LeftColor = ColorHelper.HexToColor(config.Color_LSaber);
+            RightColor = ColorHelper.HexToColor(config.Color_RSaber);
+            OverrideColors = config.OverrideColors;
         }
     }
 }
