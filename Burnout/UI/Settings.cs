@@ -23,11 +23,15 @@ namespace Burnout
             get => config.GetFloat("Main", "Burn Lifetime", 1f);
             set => config.SetFloat("Main", "Burn Lifetime", value);
         }
-
         public float BurnOpacity
         {
             get => config.GetFloat("Main", "Burn Opacity", 1f);
             set => config.SetFloat("Main", "Burn Opacity", value);
+        }
+        public float BurnScale
+        {
+            get => config.GetFloat("Main", "Burn Size", 1f);
+            set => config.SetFloat("Main", "Burn Size", value);
         }
 
         // Color Management

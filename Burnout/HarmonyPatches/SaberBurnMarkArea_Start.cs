@@ -38,6 +38,8 @@ namespace Burnout.HarmonyPatches
                     else burnColor = ColorHelper.HexToColor(config.Color_RSaber);
                 }
 
+                renderer.transform.localScale = Vector3.one * config.BurnScale;
+
                 burnColor.a = clampedOpacity;
                 renderer.startColor = burnColor;
                 renderer.endColor = burnColor;
