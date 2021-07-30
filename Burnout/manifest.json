@@ -3,12 +3,12 @@
   "author": "Raemien",
   "description": "Allows for full customization of saber burn marks.",
   "features": [],
-  "gameVersion": "1.16.2",
+  "gameVersion": "1.16.4",
   "id": "Burnout",
   "name": "Burnout",
   "version": "0.1.0",
   "dependsOn": {
-    "BSIPA": "^4.1.4",
-    "BeatSaberMarkupLanguage": "^1.4.5"
+    "BSIPA": "^4.2.0",
+    "BeatSaberMarkupLanguage": "^1.5.4"
   }
 }
