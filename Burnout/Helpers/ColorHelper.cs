@@ -6,6 +6,8 @@ namespace Burnout.Helpers
 {
     class ColorHelper
     {
+        public static readonly Color Default_Red = HexToColor("AF1313");
+        public static readonly Color Default_Blue = HexToColor("0766B4");
         public static Color HexToColor(string hex)
         {
             hex = hex.Replace("#", "");
