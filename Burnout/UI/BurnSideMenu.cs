@@ -5,14 +5,19 @@ using Burnout.Helpers;
 
 namespace Burnout
 {
-    class BurnPresetSettings : BSMLResourceViewController
+    class BurnSideMenu : BSMLResourceViewController
     {
         public override string ResourceName => "Burnout.Views.SideMenu.bsml";
 
-        internal bool _EnableTweaks = Settings.instance.EnableTweaks;
         internal float _BurnLifespan = Settings.instance.BurnLifespan;
         internal float _BurnOpacity = Settings.instance.BurnOpacity;
         internal float _BurnScale = Settings.instance.BurnScale;
+        public void ReloadValues()
+        {
+            BurnLifespan = Settings.instance.BurnLifespan;
+            BurnOpacity = Settings.instance.BurnOpacity;
+            BurnScale = Settings.instance.BurnScale;
+        }
 
         [UIValue("burn-lifetime")]
         internal float BurnLifespan

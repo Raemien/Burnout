@@ -6,7 +6,12 @@ namespace Burnout
     public class BurnFlowCoordinator : FlowCoordinator
     {
         private BurnMainSettings mainView;
-        private BurnPresetSettings presetView;
+        private BurnSideMenu sideView;
+
+        public void ReloadUIValues()
+        {
+            if (sideView) sideView.ReloadValues();
+        }
 
         private void Awake()
         {
@@ -14,9 +19,9 @@ namespace Burnout
             {
                 mainView = BeatSaberUI.CreateViewController<BurnMainSettings>();
             }
-            if (!presetView)
+            if (!sideView)
             {
-                presetView = BeatSaberUI.CreateViewController<BurnPresetSettings>();
+                sideView = BeatSaberUI.CreateViewController<BurnSideMenu>();
             }
         }
 
@@ -26,7 +31,7 @@ namespace Burnout
             {
                 SetTitle("Burnout");
                 showBackButton = true;
-                ProvideInitialViewControllers(mainView, presetView);
+                ProvideInitialViewControllers(mainView, sideView);
             }
         }
 

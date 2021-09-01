@@ -3,8 +3,8 @@
     <text text='Burn Effects' font-size='10'></text>
   </horizontal>
   <vertical vertical-fit='PreferredSize' pad='2'>
-    <increment-setting text='Scale' min='0.2' max='3' increment='0.2' value='burn-scale' apply-on-change='true' integer-only='false'/>
-    <increment-setting text='Burn Lifetime' min='0' max='10' increment='0.5' value='burn-lifetime' apply-on-change='true' integer-only='false'/>
-    <increment-setting text='Intensity' min='0.2' max='1' increment='0.1' value='burn-opacity' apply-on-change='true' integer-only='false'/>
+    <increment-setting text='Scale' min='0.2' max='3' increment='0.2' value='burn-scale' apply-on-change='true' bind-value='true' integer-only='false'/>
+    <increment-setting text='Burn Lifetime' min='0' max='10' increment='0.5' value='burn-lifetime' apply-on-change='true' bind-value='true' integer-only='false'/>
+    <increment-setting text='Intensity' min='0.2' max='1' increment='0.1' value='burn-opacity' apply-on-change='true' bind-value='true' integer-only='false'/>
   </vertical>
 </vertical>

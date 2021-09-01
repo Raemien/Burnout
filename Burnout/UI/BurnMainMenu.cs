@@ -89,6 +89,7 @@ namespace Burnout
             LeftColor = ColorHelper.HexToColor(config.Color_LSaber);
             RightColor = ColorHelper.HexToColor(config.Color_RSaber);
             OverrideColors = config.OverrideColors;
+            UISingleton.flowCoordinator.ReloadUIValues();
         }
     }
 }
